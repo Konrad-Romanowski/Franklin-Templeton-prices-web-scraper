@@ -33,14 +33,14 @@ function twoDigitFormat(number) {
 
     const selectors = [expandBtnSelector, checkBoxSelector, acceptBtnSelector];
 
-    //Clicks following selectors (used for ... of loop not to create new function instance so that await keyword works)
+    //Clicks following selectors (used "for ... of" loop not to create new function instance so that await keyword works)
     for (const selector of selectors) {
         await page.waitForSelector(selector);
         await page.click(selector);
     }
 
     //wait for website to load data
-    const tableFundPricesSelector = "[au-target-id='1763']";
+    const tableFundPricesSelector = "[au-target-id='1758']";
     const tableFundNamesSelector = "[au-target-id='1737']";
 
     const tableSelectors = [tableFundPricesSelector,tableFundNamesSelector];
