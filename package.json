@@ -1,12 +1,12 @@
 {
-  "name": "templeton",
+  "name": "franklin-templeton-prices-web-scraper",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple tool to scrape prices of funds from Investment Company website",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["puppeteer","web scraping","Franklin Templeton prices"],
   "author": "Konrad Romanowski",
   "license": "ISC",
   "dependencies": {
