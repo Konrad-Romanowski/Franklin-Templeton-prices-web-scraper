@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-//Loads funds names from csv files and put them into array
+const path = require('path');
+//Loads funds names from csv files and puts them into array
 const fundsList = fs.readFileSync('./assets/funds.csv','utf8').split('\r\n');
 fundsList.splice(fundsList.length-1);
 
@@ -33,7 +34,7 @@ function twoDigitFormat(number) {
 
     const selectors = [expandBtnSelector, checkBoxSelector, acceptBtnSelector];
 
-    //Clicks following selectors (used "for ... of" loop not to create new function instance so that await keyword works)
+    //Clicks following selectors (used "for ... of" instead of forEach loop to not create new anonymous function so that await keyword works)
     for (const selector of selectors) {
         await page.waitForSelector(selector);
         await page.click(selector);
@@ -50,12 +51,16 @@ function twoDigitFormat(number) {
 
     await page.waitFor(5000);
 
-    //await page.waitFor(() => {
-    //    return Array.from(document.querySelectorAll("[au-target-id='1760']")).every(item => item.innerText != '');
-    //});
+    //Unfortunately below part does not always work well and is not preventing from scraping data before it is loaded on website
+    // for(const tableSelector of tableSelectors) {
+    //     await page.waitFor((tableSelector) => {
+    //        return Array.from(document.querySelectorAll(tableSelector)).every(item => item.innerText != '');
+    //     });
+    // }
+    
 
-    //gets data from website as object {priceDate, prices:[{name, price}]}
-    const fundsData = await getDataFromWebsite(fundsList,page);
+    //gets data from website and return it as object {priceDate, prices:[{fundName, fundPrice}]}
+    const fundsData = await getDataFromWebsite(fundsList,page,tableFundNamesSelector);
 
     console.log(fundsData);
 
@@ -65,7 +70,7 @@ function twoDigitFormat(number) {
         return string += `${fundData.name};${fundData.price}\n`;
     },"");
 
-    await fs.writeFile(fileName,csvDataString, (err) => {
+    await fs.writeFile(path.join(__dirname,"prices",fileName),csvDataString, err => {
         console.log(err);
     });
 
