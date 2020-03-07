@@ -1,6 +1,6 @@
 # Franklin Templeton funds prices web scraper
 
-## A simple tool that downloads (scrapes) prices from Franklin templeton Investments website.
+## A simple tool that downloads (scrapes) prices from Franklin Templeton Investments website.
 
 
 ### Technologies Involved:
