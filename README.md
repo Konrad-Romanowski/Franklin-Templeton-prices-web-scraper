@@ -3,7 +3,7 @@
 ## A simple tool that downloads (scrapes) prices from Franklin Templeton Investments website.
 
 
-### Technologies Involved:
+### Technologies involved:
 * Node.js
 * Puppeteer
 
