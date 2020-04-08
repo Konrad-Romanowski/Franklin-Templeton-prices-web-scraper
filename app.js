@@ -71,7 +71,9 @@ function twoDigitFormat(number) {
     },"");
 
     await fs.writeFile(path.join(__dirname,"prices",fileName),csvDataString, err => {
-        console.log(err);
+        if(err) {
+            console.log(err);
+        }
     });
 
     console.log(`Prices for ${fundsData.prices.length} of ${fundsList.length} funds downloaded succesfully.`);
