@@ -41,15 +41,15 @@ function twoDigitFormat(number) {
     }
 
     //wait for website to load data
-    const tableFundPricesSelector = "[au-target-id='1014']";
-    const tableFundNamesSelector = "[au-target-id='993']";
+    const tableFundPricesSelector = "[au-target-id='1066']";
+    const tableFundNamesSelector = "[au-target-id='1045']";
 
     const tableSelectors = [tableFundPricesSelector,tableFundNamesSelector];
     for(const tableSelector of tableSelectors) {
         await page.waitForSelector(tableSelector);
     }
 
-    await page.waitFor(5000);
+    await page.waitFor(3000);
 
     //Unfortunately below part does not always work well and is not preventing from scraping data before it is loaded on website
     // for(const tableSelector of tableSelectors) {
