@@ -41,8 +41,8 @@ function twoDigitFormat(number) {
     }
 
     //wait for website to load data
-    const tableFundPricesSelector = "[au-target-id='1080']";
-    const tableFundNamesSelector = "[au-target-id='1059']";
+    const tableFundPricesSelector = "[au-target-id='1103']";
+    const tableFundNamesSelector = "[au-target-id='1082']";
 
     const tableSelectors = [tableFundPricesSelector,tableFundNamesSelector];
     for(const tableSelector of tableSelectors) {
