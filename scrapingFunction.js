@@ -12,7 +12,7 @@ function getDataFromWebsite(_fundList,_page,_tableFundNamesSelector) {
             return objectWithData.sort((a,b) => sortByObject[a[sortField]] - sortByObject[b[sortField]]);
         }
         
-        const priceDateSelector = "[au-target-id='1084']";
+        const priceDateSelector = "[au-target-id='1089']";
         // grabs pricing date (second node with given selector on the website - thats why [1] is recalled)
         const priceDate = Array.from(document.querySelectorAll(priceDateSelector))[1].innerText;
 
